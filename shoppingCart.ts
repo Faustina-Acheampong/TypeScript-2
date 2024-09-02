@@ -7,17 +7,24 @@ enum Categories = {
 };
 
 // Step 2: Create a list of products (using plain objects)
-const products = [
+
+interface Product {
+    id: number;
+    name: string;
+    price: number;
+    category: Categories;
+};
+const products: Product[] = [
     { id: 1, name: 'Laptop', price: 999.99, category: Categories.ELECTRONICS },
     { id: 2, name: 'T-Shirt', price: 19.99, category: Categories.CLOTHING },
     { id: 3, name: 'Bananas', price: 1.99, category: Categories.GROCERIES }
 ];
 
 // Step 3: Create a shopping cart (initially empty)
-let shoppingCart = [];
+let shoppingCart: Product[] = [];
 
 // Step 4: Function to add a product to the cart (using arrow function)
-const addToCart = (product) => {
+const addToCart: (product: Product) => void = (product) => {
     shoppingCart.push(product);
     console.log(`${product.name} has been added to your cart.`);
 };
