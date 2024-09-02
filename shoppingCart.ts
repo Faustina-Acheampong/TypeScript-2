@@ -26,15 +26,14 @@ let shoppingCart: Product[] = [];
 // Step 4: Function to add a product to the cart (using arrow function)
 const addToCart: (product: Product) => void = (product) => {
     shoppingCart.push(product);  // Pushes the product to the shoppingCart array
-    
     console.log(`${product.name} has been added to your cart.`); // notification message
 };
 
 // Step 5: Function to calculate the total price of the cart (using arrow function)
-const calculateTotal = (cart) => {
-    let total = 0;
-    cart.forEach((item) => total += item.price);
-    return total.toFixed(2);
+const calculateTotal: (cart: Product[]) => string = (cart) => {
+  let total = 0; //initial total price set to 0
+  cart.forEach((item) => total += item.price * item.quantity); //forEach adds the price of the item multiplied by its quantity, to the total price
+  return total.toFixed(2); // returns the total price as a string with two decimal places
 };
 
 // Step 6: Function to display the cart contents (using arrow function)
