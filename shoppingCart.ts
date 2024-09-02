@@ -1,9 +1,9 @@
 
 // Step 1: Turn this into an enum)
-enum Categories = {
-    ELECTRONICS: 'Electronics',
-    GROCERIES: 'Groceries',
-    CLOTHING: 'Clothing'
+enum Categories {
+    ELECTRONICS = 'Electronics',
+    GROCERIES = 'Groceries',
+    CLOTHING = 'Clothing'
 };
 
 // Step 2: Create a list of products (using plain objects)
@@ -37,15 +37,16 @@ const calculateTotal: (cart: Product[]) => string = (cart) => {
 };
 
 // Step 6: Function to display the cart contents (using arrow function)
-const displayCart = (cart) => {
+const displayCart: (cart) => void = (cart) => {
+    // Checks if the cart is empty and logs a message as such
     if (cart.length === 0) {
         console.log('Your cart is empty.');
         return;
     }
-
     console.log('Your cart contains:');
+    // repeat over each item in the cart
     cart.forEach((item) => {
-        console.log(`- ${item.name} (${item.category}): $${item.price}`);
+        console.log(`- ${item.name} (${item.category}): $${item.price}`); // Logs the item's name, category, and price
     });
     console.log(`Total: $${calculateTotal(cart)}`);
 };
