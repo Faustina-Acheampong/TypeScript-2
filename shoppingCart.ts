@@ -57,6 +57,6 @@ const displayCart = (cart: Product[]): void => {
 }
 
 // Step 7: Simulate adding products to the cart and displaying it
-addToCart(products[0]); // Adding Laptop
-addToCart(products[2]); // Adding Bananas
+addToCart(products[0], 2); // Adding 2 Laptops
+addToCart(products[2], 6); // Adding 6 Bananas
 displayCart(shoppingCart);
