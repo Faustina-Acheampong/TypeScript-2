@@ -26,8 +26,8 @@ let shoppingCart: Product[] = [];
 
 // Step 4: Function to add a product to the cart (using arrow function)
 const addToCart: (product: Product, quantity: number = 1): void => {
-    const productUnitQuantity: product = {...product, quantity}; //adds quantity to the product and pushes it to the shoppingCart array 
-    shoppingCart.push(productUnitQuantity);
+    const productAndQuantity: product = {...product, quantity}; //adds quantity to the product and pushes it to the shoppingCart array 
+    shoppingCart.push(productAndQuantity);
     console.log(`${product.name} has been added to your cart.`); // notification message
 };
 
@@ -41,7 +41,7 @@ const calculateTotal: (cart: Product[]): string => {
 });
 
 // Step 6: Function to display the cart contents (using arrow function)
-const displayCart: (cart) => void = (cart) => {
+const displayCart = (cart: Product[]): void => {
     // Checks if the cart is empty and logs a message as such
     if (cart.length === 0) {
         console.log('Your cart is empty.');
