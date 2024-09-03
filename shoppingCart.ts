@@ -35,10 +35,11 @@ const addToCart: (product: Product, quantity: number = 1): void => {
 const calculateTotal: (cart: Product[]): string => {
   let total = 0; //initial total price set to 0
  //forEach adds the price of the item multiplied by its quantity, to the total price
-    cart.forEach((item) => total {
-    += item.price * (item.quantity || 1); //specify quantity otherwise default to 1
-  return total.toFixed(2); // returns the total price as a string with two decimal places
+    cart.forEach((item) => {
+   total += item.price * (item.quantity || 1); //specify quantity otherwise default to 1
 });
+ return total.toFixed(2); // returns the total price as a string with two decimal places
+};
 
 // Step 6: Function to display the cart contents (using arrow function)
 const displayCart = (cart: Product[]): void => {
