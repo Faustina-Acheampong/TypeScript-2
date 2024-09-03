@@ -13,6 +13,7 @@ interface Product {
     name: string;
     price: number;
     category: Categories;
+    quantity?: number;  //allows optional product quantity to be assigned
 };
 const products: Product[] = [
     { id: 1, name: 'Laptop', price: 999.99, category: Categories.ELECTRONICS },
@@ -24,17 +25,20 @@ const products: Product[] = [
 let shoppingCart: Product[] = [];
 
 // Step 4: Function to add a product to the cart (using arrow function)
-const addToCart: (product: Product) => void = (product) => {
-    shoppingCart.push(product);  // Pushes the product to the shoppingCart array
+const addToCart: (product: Product, quantity: number = 1): void => {
+    const productUnitQuantity: product = {...product, quantity}; //adds quantity to the product and pushes it to the shoppingCart array 
+    shoppingCart.push(productUnitQuantity);
     console.log(`${product.name} has been added to your cart.`); // notification message
 };
 
 // Step 5: Function to calculate the total price of the cart (using arrow function)
-const calculateTotal: (cart: Product[]) => string = (cart) => {
+const calculateTotal: (cart: Product[]): string => {
   let total = 0; //initial total price set to 0
-  cart.forEach((item) => total += item.price * item.quantity); //forEach adds the price of the item multiplied by its quantity, to the total price
+ //forEach adds the price of the item multiplied by its quantity, to the total price
+    cart.forEach((item) => total {
+    += item.price * (item.quantity || 1); //specify quantity otherwise default to 1
   return total.toFixed(2); // returns the total price as a string with two decimal places
-};
+});
 
 // Step 6: Function to display the cart contents (using arrow function)
 const displayCart: (cart) => void = (cart) => {
@@ -46,7 +50,7 @@ const displayCart: (cart) => void = (cart) => {
     console.log('Your cart contains:');
     // repeat over each item in the cart
     cart.forEach((item) => {
-        console.log(`- ${item.name} (${item.category}): $${item.price}`); // Logs the item's name, category, and price
+        console.log(`- ${item.name} (${item.category}): $${item.price}x ${item.quantity || 1}`); // Logs the item's name, category, price and quantity
     });
     console.log(`Total: $${calculateTotal(cart)}`);
 };
