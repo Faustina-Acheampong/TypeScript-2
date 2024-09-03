@@ -26,7 +26,7 @@ let shoppingCart: Product[] = [];
 
 // Step 4: Function to add a product to the cart (using arrow function)
 const addToCart: (product: Product, quantity: number = 1): void => {
-    const productAndQuantity: product = {...product, quantity}; //adds quantity to the product and pushes it to the shoppingCart array 
+    const productAndQuantity: Product = {...product, quantity}; //adds quantity to the product and pushes it to the shoppingCart array 
     shoppingCart.push(productAndQuantity);
     console.log(`${product.name} has been added to your cart.`); // notification message
 };
