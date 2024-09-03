@@ -56,11 +56,6 @@ const displayCart = (cart: Product[]): void => {
     console.log(`Total: $${calculateTotal(cart)}`)
 }
 
-// Example usage:
-addToCart(products[0]) // Adding Laptop
-addToCart(products[2]) // Adding Bananas
-displayCart(shoppingCart)
-
 // Step 7: Simulate adding products to the cart and displaying it
 addToCart(products[0]); // Adding Laptop
 addToCart(products[2]); // Adding Bananas
